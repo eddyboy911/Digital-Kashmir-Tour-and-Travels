@@ -7,7 +7,7 @@ export type RevealDirection = 'up' | 'down' | 'left' | 'right' | 'fade' | 'scale
 
 interface RevealProps {
   children: React.ReactNode;
-  /** Stagger delay slot — applies reveal-delay-1..5 */
+  /** Stagger delay slot applies reveal-delay-1..5 */
   delay?: 0 | 1 | 2 | 3 | 4 | 5;
   /** Slide direction. Default: up */
   direction?: RevealDirection;
@@ -32,38 +32,38 @@ export function Reveal({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            if (!repeat) observer.unobserve(entry.target);
-          } else if (repeat) {
-            setVisible(false);
-          }
-        }
-      },
-      { threshold, rootMargin: '0px 0px -60px 0px' },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
+  const node = ref.current;
+  if (!node) return;
+  const observer = new IntersectionObserver(
+  (entries) => {
+    for (const entry of entries) {
+    if (entry.isIntersecting) {
+    setVisible(true);
+    if (!repeat) observer.unobserve(entry.target);
+    } else if (repeat) {
+    setVisible(false);
+    }
+    }
+  },
+  { threshold, rootMargin: '0px 0px -60px 0px' },
+  );
+  observer.observe(node);
+  return () => observer.disconnect();
   }, [repeat, threshold]);
 
   const Component = Tag as 'div';
   return (
-    <Component
-      ref={ref}
-      data-dir={direction}
-      className={clsx(
-        'reveal',
-        visible && 'is-visible',
-        delay > 0 && `reveal-delay-${delay}`,
-        className,
-      )}
-    >
-      {children}
-    </Component>
+  <Component
+  ref={ref}
+  data-dir={direction}
+  className={clsx(
+    'reveal',
+    visible && 'is-visible',
+    delay > 0 && `reveal-delay-${delay}`,
+    className,
+  )}
+  >
+  {children}
+  </Component>
   );
 }

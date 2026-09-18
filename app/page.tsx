@@ -11,21 +11,21 @@ import { Faq } from '@/components/Faq';
 
 export default function HomePage() {
   return (
-    <>
-      <Hero />
-      <DestinationMarquee />
-      <Destinations />
-      <TourPackages />
-      <BigQuote
-        quote="They didn’t just plan a trip — they planned a story we’ll tell for years. From a private shikara ride at sunset to a driver who knew every shortcut through Sonamarg, every detail felt personal."
-        author="Penelope Wiggins"
-        role="Honeymoon · London"
-      />
-      <Gallery />
-      <CabRental />
-      <WhyChooseUs />
-      <Testimonials />
-      <Faq />
-    </>
+  <>
+  <Hero />
+  <DestinationMarquee />
+  <Destinations />
+  <TourPackages />
+  <BigQuote
+    quote="They didn’t just plan a trip they planned a story we’ll tell for years. From a private shikara ride at sunset to a driver who knew every shortcut through Sonamarg, every detail felt personal."
+    author="Penelope Wiggins"
+    role="Honeymoon · London"
+  />
+  <Gallery />
+  <CabRental />
+  <WhyChooseUs />
+  <Testimonials />
+  <Faq />
+  </>
   );
 }
