@@ -130,9 +130,13 @@ export function Hero() {
                 <span className="font-extralight italic text-amber-200">Kashmir</span>
               </span>
 
-              {/* Rotating bottom line. Grid stacks all 4 tails in the same
-                  cell so the line height never jumps between rotations. */}
-              <span aria-live="polite" aria-atomic="true" className="block">
+              {/* Rotating bottom line. Sized smaller than the rest of the
+                  headline so even the longest tail fits on a single line. */}
+              <span
+                aria-live="polite"
+                aria-atomic="true"
+                className="block whitespace-nowrap text-4xl sm:text-5xl lg:text-6xl"
+              >
                 <span className="grid">
                   {HEADLINE_TAILS.map((tail, i) => {
                     const isActive = i === tailIdx;
@@ -142,7 +146,7 @@ export function Hero() {
                         aria-hidden={!isActive}
                         style={{ gridArea: '1 / 1' }}
                         className={clsx(
-                          'transition-all duration-700 ease-out will-change-transform',
+                          'whitespace-nowrap transition-all duration-700 ease-out will-change-transform',
                           isActive
                             ? 'translate-y-0 opacity-100'
                             : 'translate-y-5 opacity-0',
