@@ -376,3 +376,64 @@ export const benefits = [
   { label: 'Secure Payments', icon: 'Lock' },
   { label: '24/7 Support', icon: 'Clock' },
 ];
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  initial: string;
+  gradient: string;
+}
+
+export const team: TeamMember[] = [
+  {
+    name: 'Faisal Bhat',
+    role: 'Founder · Trip Designer',
+    initial: 'FB',
+    gradient: 'from-jade-600 to-brand-800',
+  },
+  {
+    name: 'Aaliya Mir',
+    role: 'Operations Lead',
+    initial: 'AM',
+    gradient: 'from-amber-500 to-brand-700',
+  },
+  {
+    name: 'Imran Lone',
+    role: 'Head of Cab Fleet',
+    initial: 'IL',
+    gradient: 'from-brand-700 to-jade-700',
+  },
+  {
+    name: 'Sara Jan',
+    role: 'Guest Experience',
+    initial: 'SJ',
+    gradient: 'from-jade-500 to-amber-600',
+  },
+];
+
+export interface AboutValue {
+  icon: 'Heart' | 'MapPin' | 'Headphones' | 'Leaf' | 'ShieldCheck' | 'Sparkles';
+  title: string;
+  body: string;
+}
+
+export const aboutValues: AboutValue[] = [
+  {
+    icon: 'Heart',
+    title: 'Born in Kashmir',
+    body:
+      'We grew up here. The places we send you to are the same valleys, lakes, and meadows our families have known for generations.',
+  },
+  {
+    icon: 'MapPin',
+    title: 'Designed on the ground',
+    body:
+      'Every itinerary is built from first-hand experience. We have walked the trails, eaten at the dhabas, and tested the cabs ourselves.',
+  },
+  {
+    icon: 'Headphones',
+    title: 'Always reachable',
+    body:
+      'From the moment you land to the moment you fly out, one phone number connects you to a real human in Srinagar, 24×7.',
+  },
+];

@@ -19,17 +19,17 @@ export function Footer() {
   };
 
   const important = [
-  { href: '#destinations', label: 'Destinations' },
-  { href: '#packages', label: 'Book a Package' },
-  { href: '#packages', label: 'Book a Ticket' },
-  { href: '#faq', label: 'FAQ' },
+  { href: '/#destinations', label: 'Destinations' },
+  { href: '/#packages', label: 'Book a Package' },
+  { href: '/#packages', label: 'Book a Ticket' },
+  { href: '/#faq', label: 'FAQ' },
   ];
 
   const company = [
-  { href: '#about', label: 'About Us' },
-  { href: '#destinations', label: 'Destinations' },
-  { href: '#contact', label: 'Contact Us' },
-  { href: '#testimonials', label: 'Reviews' },
+  { href: '/about', label: 'About Us' },
+  { href: '/#destinations', label: 'Destinations' },
+  { href: '/contact', label: 'Contact Us' },
+  { href: '/#testimonials', label: 'Reviews' },
   ];
 
   return (

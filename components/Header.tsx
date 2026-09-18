@@ -2,22 +2,24 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Facebook, Instagram, Menu, Phone, Twitter, X } from 'lucide-react';
 import clsx from 'clsx';
 import { site } from '@/lib/site';
 import { destinations } from '@/lib/data';
 
 const nav = [
-  { href: '#home', label: 'Home' },
-  { href: '#destinations', label: 'Destinations', hasMenu: true },
-  { href: '#packages', label: 'Tour Packages' },
-  { href: '#gallery', label: 'Gallery' },
-  { href: '#cab-rental', label: 'Cab Rental' },
-  { href: '#about', label: 'About' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#home', label: 'Home' },
+  { href: '/#destinations', label: 'Destinations', hasMenu: true },
+  { href: '/#packages', label: 'Tour Packages' },
+  { href: '/#gallery', label: 'Gallery' },
+  { href: '/#cab-rental', label: 'Cab Rental' },
+  { href: '/about', label: 'About', route: '/about' },
+  { href: '/contact', label: 'Contact', route: '/contact' },
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [destinationsOpen, setDestinationsOpen] = useState(false);
@@ -41,6 +43,11 @@ export function Header() {
     setDestinationsOpen(false);
   };
 
+  const isActive = (item: (typeof nav)[number]) => {
+    if (!('route' in item) || !item.route) return false;
+    return pathname === item.route || pathname.startsWith(item.route + '/');
+  };
+
   return (
     <header
       className={clsx(
@@ -51,7 +58,7 @@ export function Header() {
       <div className="container-x flex items-center justify-between gap-6 py-4">
         {/* Logo */}
         <Link
-          href="#home"
+          href="/"
           onClick={closeMenu}
           className="group flex items-center gap-3"
           aria-label={`${site.name} home`}
@@ -123,7 +130,7 @@ export function Header() {
                           {destinations.map((d) => (
                             <li key={d.id}>
                               <a
-                                href={`#destinations`}
+                                href="/#destinations"
                                 onClick={closeMenu}
                                 className="block rounded-xl px-3 py-2 text-sm text-slate-700 transition hover:bg-jade-50 hover:text-jade-800"
                                 role="menuitem"
@@ -137,12 +144,18 @@ export function Header() {
                     )}
                   </>
                 ) : (
-                  <a
+                  <Link
                     href={item.href}
-                    className="rounded-full px-3.5 py-2 text-sm font-semibold text-slate-700 transition hover:text-brand-800"
+                    aria-current={isActive(item) ? 'page' : undefined}
+                    className={clsx(
+                      'rounded-full px-3.5 py-2 text-sm font-semibold transition',
+                      isActive(item)
+                        ? 'text-brand-800'
+                        : 'text-slate-700 hover:text-brand-800',
+                    )}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 )}
               </li>
             ))}
@@ -230,7 +243,7 @@ export function Header() {
                       {destinations.map((d) => (
                         <li key={d.id}>
                           <a
-                            href="#destinations"
+                            href="/#destinations"
                             onClick={closeMenu}
                             className="block rounded-xl px-3 py-2 text-sm text-slate-600 hover:bg-jade-50 hover:text-jade-800"
                           >
@@ -241,13 +254,19 @@ export function Header() {
                     </ul>
                   </details>
                 ) : (
-                  <a
+                  <Link
                     href={item.href}
                     onClick={closeMenu}
-                    className="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-jade-50 hover:text-jade-800"
+                    aria-current={isActive(item) ? 'page' : undefined}
+                    className={clsx(
+                      'block rounded-2xl px-4 py-3 text-sm font-semibold transition',
+                      isActive(item)
+                        ? 'bg-jade-50 text-brand-800'
+                        : 'text-slate-700 hover:bg-jade-50 hover:text-jade-800',
+                    )}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 )}
               </li>
             ))}

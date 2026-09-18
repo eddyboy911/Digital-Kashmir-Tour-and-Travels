@@ -35,14 +35,7 @@ const tiles: { src: string; alt: string; span: string; title: string; sub: strin
   sub: 'Ladakh',
   dir: 'right',
   },
-  {
-  src: 'https://images.unsplash.com/photo-1708186320869-0a527e67023d?auto=format&fit=crop&w=900&q=70',
-  alt: 'Gurez Valley bridge over river with mountains',
-  span: '',
-  title: 'Gurez',
-  sub: 'Hidden valley',
-  dir: 'left',
-  },
+
 ];
 
 export function Gallery() {
