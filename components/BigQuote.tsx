@@ -20,13 +20,13 @@ export function BigQuote({ quote, author, role }: BigQuoteProps) {
           src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=2400&q=70"
           alt=""
           aria-hidden
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover animate-slow-zoom"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink-900 via-ink-900/85 to-ink-900/40" />
       </div>
 
       <Container className="max-w-4xl">
-        <Reveal>
+        <Reveal direction="fade">
           <Quote className="h-12 w-12 text-amber-300" />
           <blockquote className="display-lg mt-8 text-balance text-3xl leading-[1.15] text-white sm:text-4xl lg:text-5xl">
             “{quote}”

@@ -56,48 +56,51 @@ export function WhyChooseUs() {
             const Icon = iconMap[feature.icon] ?? Compass;
             const reverse = i % 2 === 1;
             return (
-              <Reveal key={feature.title}>
-                <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
-                  <div
-                    className={`lg:col-span-7 ${reverse ? 'lg:order-2' : ''}`}
-                  >
-                    <div className="relative overflow-hidden rounded-[32px] shadow-card">
-                      <img
-                        src={featureImages[i]}
-                        alt={feature.title}
-                        loading="lazy"
-                        className="h-[420px] w-full object-cover"
-                      />
-                      <div className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-800 backdrop-blur">
-                        <span>0{i + 1}</span>
-                        <span className="h-px w-6 bg-brand-800/60" />
-                        <span>Pillar</span>
-                      </div>
+              <div
+                key={feature.title}
+                className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16"
+              >
+                <Reveal
+                  direction={reverse ? 'right' : 'left'}
+                  className={`lg:col-span-7 ${reverse ? 'lg:order-2' : ''}`}
+                >
+                  <div className="img-zoom-on-hover relative overflow-hidden rounded-[32px] shadow-card">
+                    <img
+                      src={featureImages[i]}
+                      alt={feature.title}
+                      loading="lazy"
+                      className="h-[420px] w-full object-cover"
+                    />
+                    <div className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-800 backdrop-blur">
+                      <span>0{i + 1}</span>
+                      <span className="h-px w-6 bg-brand-800/60" />
+                      <span>Pillar</span>
                     </div>
                   </div>
+                </Reveal>
 
-                  <div
-                    className={`lg:col-span-5 ${reverse ? 'lg:order-1' : ''}`}
-                  >
-                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-ink-900 text-white shadow-soft">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="display-lg mt-6 text-balance text-3xl text-slate-900 sm:text-4xl">
-                      {feature.title}
-                    </h3>
-                    <div className="gold-rule !ml-0 !mx-0" />
-                    <p className="text-base leading-relaxed text-slate-600">
-                      {feature.body}
-                    </p>
+                <Reveal
+                  direction={reverse ? 'left' : 'right'}
+                  className={`lg:col-span-5 ${reverse ? 'lg:order-1' : ''}`}
+                >
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-ink-900 text-white shadow-soft transition-transform duration-500 hover:rotate-6 hover:scale-105">
+                    <Icon className="h-6 w-6" />
                   </div>
-                </div>
-              </Reveal>
+                  <h3 className="display-lg mt-6 text-balance text-3xl text-slate-900 sm:text-4xl">
+                    {feature.title}
+                  </h3>
+                  <div className="gold-rule !ml-0 !mx-0" />
+                  <p className="text-base leading-relaxed text-slate-600">
+                    {feature.body}
+                  </p>
+                </Reveal>
+              </div>
             );
           })}
         </div>
 
         {/* Benefits strip — dark, editorial */}
-        <Reveal>
+        <Reveal direction="up">
           <div className="mt-24 overflow-hidden rounded-[32px] bg-ink-900 px-6 py-12 text-white sm:px-10 sm:py-14">
             <div className="grid items-center gap-10 lg:grid-cols-12">
               <div className="lg:col-span-7">
@@ -108,16 +111,19 @@ export function WhyChooseUs() {
                 </h3>
               </div>
               <div className="grid grid-cols-2 gap-6 lg:col-span-5">
-                {benefits.map(({ label, icon }) => {
+                {benefits.map(({ label, icon }, i) => {
                   const Icon = iconMap[icon] ?? Sparkles;
                   return (
-                    <div
+                    <Reveal
                       key={label}
-                      className="flex flex-col gap-2 border-l border-white/15 pl-4"
+                      direction={i % 2 === 0 ? 'left' : 'right'}
+                      delay={Math.min(i + 1, 5) as 0 | 1 | 2 | 3 | 4 | 5}
                     >
-                      <Icon className="h-5 w-5 text-amber-300" />
-                      <p className="font-display text-lg font-bold">{label}</p>
-                    </div>
+                      <div className="flex flex-col gap-2 border-l border-white/15 pl-4">
+                        <Icon className="h-5 w-5 text-amber-300" />
+                        <p className="font-display text-lg font-bold">{label}</p>
+                      </div>
+                    </Reveal>
                   );
                 })}
               </div>
@@ -132,7 +138,7 @@ export function WhyChooseUs() {
                 href="#contact"
                 variant="primary"
                 size="md"
-                className="rounded-full bg-amber-400 px-6 text-brand-950 hover:bg-amber-300 focus-visible:ring-amber-400"
+                className="rounded-full bg-amber-400 px-6 text-brand-950 hover:bg-amber-300 hover:shadow-lg focus-visible:ring-amber-400"
               >
                 Plan My Trip →
               </Button>

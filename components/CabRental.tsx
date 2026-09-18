@@ -56,24 +56,28 @@ export function CabRental() {
 
         <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:items-start">
           {/* Left benefits */}
-          <Reveal className="lg:col-span-6">
+          <Reveal className="lg:col-span-6" direction="left">
             <h3 id="cab-title" className="sr-only">
               Cab rental benefits
             </h3>
             <div className="grid gap-4 sm:grid-cols-2">
-              {features.map(({ icon: Icon, title, body }) => (
-                <div
+              {features.map(({ icon: Icon, title, body }, i) => (
+                <Reveal
                   key={title}
-                  className="group rounded-2xl border border-slate-200/70 bg-white p-5 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card"
+                  direction={i % 2 === 0 ? 'up' : 'up'}
+                  delay={Math.min(i + 1, 5) as 0 | 1 | 2 | 3 | 4 | 5}
+                  threshold={0.05}
                 >
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-jade-50 text-jade-700 transition group-hover:bg-jade-700 group-hover:text-white">
-                    <Icon className="h-5 w-5" />
+                  <div className="card-premium group h-full rounded-2xl border border-slate-200/70 bg-white p-5">
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-jade-50 text-jade-700 transition duration-500 group-hover:bg-jade-700 group-hover:text-white group-hover:rotate-6">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h4 className="mt-3 font-display text-base font-bold text-slate-900">
+                      {title}
+                    </h4>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{body}</p>
                   </div>
-                  <h4 className="mt-3 font-display text-base font-bold text-slate-900">
-                    {title}
-                  </h4>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-600">{body}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
 
@@ -98,13 +102,13 @@ export function CabRental() {
           </Reveal>
 
           {/* Right fleet */}
-          <Reveal className="lg:col-span-6" delay={1}>
-            <div className="overflow-hidden rounded-[28px] border border-slate-200/70 bg-white shadow-card">
+          <Reveal className="lg:col-span-6" direction="right">
+            <div className="card-premium overflow-hidden rounded-[28px] border border-slate-200/70 bg-white">
               <div className="relative h-44 overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=70"
                   alt="SUV driving through Kashmir mountains"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-[1.6s] hover:scale-110"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-900/75 via-ink-900/15 to-transparent" />
@@ -120,7 +124,7 @@ export function CabRental() {
                 {fleet.map((row) => (
                   <li
                     key={row.name}
-                    className="flex items-center justify-between gap-4 px-6 py-4"
+                    className="flex items-center justify-between gap-4 px-6 py-4 transition hover:bg-jade-50/40"
                   >
                     <div>
                       <p className="font-display text-base font-bold text-slate-900">

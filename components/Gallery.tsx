@@ -1,14 +1,15 @@
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Reveal } from '@/components/Reveal';
+import { Reveal, type RevealDirection } from '@/components/Reveal';
 
-const tiles = [
+const tiles: { src: string; alt: string; span: string; title: string; sub: string; dir: RevealDirection }[] = [
   {
     src: 'https://images.unsplash.com/photo-1566837497312-7be4a47a1d70?auto=format&fit=crop&w=900&q=70',
     alt: 'Houseboats on Dal Lake at sunrise',
     span: 'md:col-span-2 md:row-span-2',
     title: 'Dal Lake',
     sub: 'Houseboats · Shikaras',
+    dir: 'left',
   },
   {
     src: 'https://images.unsplash.com/photo-1606117331085-5760e3b58520?auto=format&fit=crop&w=900&q=70',
@@ -16,6 +17,7 @@ const tiles = [
     span: '',
     title: 'Gulmarg',
     sub: 'Snow',
+    dir: 'right',
   },
   {
     src: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=70',
@@ -23,6 +25,7 @@ const tiles = [
     span: '',
     title: 'Pahalgam',
     sub: 'Lidder valley',
+    dir: 'up',
   },
   {
     src: 'https://images.unsplash.com/photo-1591019479261-1a103585c559?auto=format&fit=crop&w=900&q=70',
@@ -30,6 +33,7 @@ const tiles = [
     span: '',
     title: 'Pangong',
     sub: 'Ladakh',
+    dir: 'right',
   },
   {
     src: 'https://images.unsplash.com/photo-1614608997588-8c1c5b3a3b3a?auto=format&fit=crop&w=900&q=70',
@@ -37,6 +41,7 @@ const tiles = [
     span: '',
     title: 'Gurez',
     sub: 'Hidden valley',
+    dir: 'left',
   },
 ];
 
@@ -61,18 +66,15 @@ export function Gallery() {
 
         <div className="mt-16 grid auto-rows-[220px] grid-cols-2 gap-4 md:grid-cols-4">
           {tiles.map((tile, i) => (
-            <Reveal
-              key={tile.title}
-              delay={Math.min(i % 3, 3) as 0 | 1 | 2 | 3}
-            >
+            <Reveal key={tile.title} direction={tile.dir}>
               <figure
-                className={`group relative h-full w-full overflow-hidden rounded-3xl shadow-soft ${tile.span}`}
+                className={`img-zoom-on-hover card-premium relative h-full w-full overflow-hidden rounded-3xl ${tile.span}`}
               >
                 <img
                   src={tile.src}
                   alt={tile.alt}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/10 to-transparent" />
                 <figcaption className="absolute bottom-4 left-5 text-white">

@@ -3,21 +3,30 @@
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 
+export type RevealDirection = 'up' | 'down' | 'left' | 'right' | 'fade' | 'scale';
+
 interface RevealProps {
   children: React.ReactNode;
-  delay?: 0 | 1 | 2 | 3 | 4;
+  /** Stagger delay slot — applies reveal-delay-1..5 */
+  delay?: 0 | 1 | 2 | 3 | 4 | 5;
+  /** Slide direction. Default: up */
+  direction?: RevealDirection;
   as?: keyof JSX.IntrinsicElements;
   className?: string;
-  /** Set true to re-trigger every time the element re-enters the viewport. */
+  /** Re-trigger every time the element re-enters the viewport. */
   repeat?: boolean;
+  /** IntersectionObserver threshold (0–1). Default 0.12. */
+  threshold?: number;
 }
 
 export function Reveal({
   children,
   delay = 0,
+  direction = 'up',
   as: Tag = 'div',
   className,
   repeat = false,
+  threshold = 0.12,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -36,16 +45,17 @@ export function Reveal({
           }
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' },
+      { threshold, rootMargin: '0px 0px -60px 0px' },
     );
     observer.observe(node);
     return () => observer.disconnect();
-  }, [repeat]);
+  }, [repeat, threshold]);
 
   const Component = Tag as 'div';
   return (
     <Component
       ref={ref}
+      data-dir={direction}
       className={clsx(
         'reveal',
         visible && 'is-visible',

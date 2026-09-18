@@ -58,7 +58,7 @@ export function Header() {
         >
           <span
             aria-hidden
-            className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-jade-600 to-brand-800 text-white shadow-soft transition group-hover:scale-105"
+            className="float-soft grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-jade-600 to-brand-800 text-white shadow-soft"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

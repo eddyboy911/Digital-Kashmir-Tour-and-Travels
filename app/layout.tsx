@@ -4,6 +4,7 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { FloatingButtons } from '@/components/FloatingButtons';
+import { ScrollProgress } from '@/components/ScrollProgress';
 import { site } from '@/lib/site';
 
 const jakarta = Plus_Jakarta_Sans({
@@ -53,6 +54,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <ScrollProgress />
         <Header />
         <main id="main">{children}</main>
         <Footer />
