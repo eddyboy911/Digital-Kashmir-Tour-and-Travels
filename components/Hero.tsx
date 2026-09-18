@@ -98,8 +98,8 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink-900/45 via-transparent to-transparent" />
       </div>
 
-      {/* Editorial corner mark */}
-      <div className="absolute left-6 top-24 z-10 hidden flex-col items-start gap-1 text-white/80 lg:flex">
+      {/* Editorial corner mark — right side */}
+      <div className="absolute right-6 top-24 z-10 hidden flex-col items-end gap-1 text-white/80 lg:flex">
         <span className="block h-px w-12 bg-white/60" />
         <span className="text-[10px] font-bold uppercase tracking-[0.32em]">
           Est. 2018 · Srinagar
