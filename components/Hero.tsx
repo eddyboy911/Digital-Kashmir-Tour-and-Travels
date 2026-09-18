@@ -1,31 +1,29 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Award, Phone, ShieldCheck } from 'lucide-react';
 import clsx from 'clsx';
+import { ArrowRight, Award, Phone, ShieldCheck } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { site } from '@/lib/site';
 import { Reveal } from '@/components/Reveal';
 
-/** Headlines that cycle through the hero. The italic word/phrase is the
- *  amber-highlighted piece; everything else is bold or plain. */
-const HEADLINES: { top?: string; italic: string; bottom: string }[] = [
-  { top: 'Experience', italic: 'Kashmir', bottom: 'like never before.' },
-  { top: 'Experience', italic: 'Kashmir', bottom: 'in a whole new way.' },
-  { top: 'Experience', italic: 'Kashmir', bottom: 'beyond the ordinary.' },
-  { top: 'Experience', italic: 'Kashmir', bottom: ', your way.' },
-  { italic: 'A journey', bottom: 'beyond imagination.' },
+/** Third-line variations that cycle beneath the static "Experience / Kashmir".
+ *  Only this bottom line animates — the rest of the headline stays put. */
+const HEADLINE_TAILS = [
+  'like never before.',
+  'beyond the ordinary.',
+  'your way.',
+  'like never imagined.',
 ];
 
-/** How long each headline stays on screen before rotating to the next. */
-const HEADLINE_ROTATE_MS = 3200;
+const TAIL_ROTATE_MS = 3200;
 
 export function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
-  const [headlineIdx, setHeadlineIdx] = useState(0);
+  const [tailIdx, setTailIdx] = useState(0);
 
   // Animate vehicle counter when hero enters view
   useEffect(() => {
@@ -68,13 +66,13 @@ export function Hero() {
     };
   }, [started]);
 
-  // Rotate headline through variations. Honors prefers-reduced-motion.
+  // Rotate the bottom headline line. Honors prefers-reduced-motion.
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) return;
     const t = setInterval(() => {
-      setHeadlineIdx((i) => (i + 1) % HEADLINES.length);
-    }, HEADLINE_ROTATE_MS);
+      setTailIdx((i) => (i + 1) % HEADLINE_TAILS.length);
+    }, TAIL_ROTATE_MS);
     return () => clearInterval(t);
   }, []);
 
@@ -121,66 +119,42 @@ export function Hero() {
               id="hero-title"
               className="display-xl mt-6 text-balance text-white text-5xl sm:text-6xl lg:text-8xl"
             >
-              {/* Screen-reader-only canonical headline */}
+              {/* Screen-reader canonical headline */}
               <span className="sr-only">
-                Experience Kashmir like never before — Digital Kashmir Tour and Travel
+                Experience Kashmir — Digital Kashmir Tour and Travel
               </span>
 
-              {/* Live-rotating headlines. Grid stacks all variants in the same
-                  cell so the cell height tracks the tallest headline. */}
-              <span aria-live="polite" aria-atomic="true" className="grid">
-                {HEADLINES.map((h, i) => {
-                  const isActive = i === headlineIdx;
-                  return (
-                    <span
-                      key={`${h.italic}::${h.bottom}`}
-                      aria-hidden={!isActive}
-                      style={{ gridArea: '1 / 1' }}
-                      className={clsx(
-                        'transition-all duration-700 ease-out will-change-transform',
-                        isActive
-                          ? 'translate-y-0 opacity-100'
-                          : 'translate-y-10 opacity-0',
-                      )}
-                    >
-                      {h.top && <span className="block">{h.top}</span>}
-                      <span className="block">
-                        <span className="font-extralight italic text-amber-200">
-                          {h.italic}
-                        </span>
-                        {h.bottom && <> {h.bottom}</>}
+              {/* Static top — "Experience" and "Kashmir" never change, same size */}
+              <span className="block">Experience</span>
+              <span className="block">
+                <span className="font-extralight italic text-amber-200">Kashmir</span>
+              </span>
+
+              {/* Rotating bottom line. Grid stacks all 4 tails in the same
+                  cell so the line height never jumps between rotations. */}
+              <span aria-live="polite" aria-atomic="true" className="block">
+                <span className="grid">
+                  {HEADLINE_TAILS.map((tail, i) => {
+                    const isActive = i === tailIdx;
+                    return (
+                      <span
+                        key={tail}
+                        aria-hidden={!isActive}
+                        style={{ gridArea: '1 / 1' }}
+                        className={clsx(
+                          'transition-all duration-700 ease-out will-change-transform',
+                          isActive
+                            ? 'translate-y-0 opacity-100'
+                            : 'translate-y-5 opacity-0',
+                        )}
+                      >
+                        {tail}
                       </span>
-                    </span>
-                  );
-                })}
+                    );
+                  })}
+                </span>
               </span>
             </h1>
-          </Reveal>
-
-          {/* Headline progress dots — visual indicator of which is showing */}
-          <Reveal delay={2}>
-            <div
-              role="tablist"
-              aria-label="Headline variations"
-              className="mt-6 flex items-center gap-2"
-            >
-              {HEADLINES.map((h, i) => (
-                <button
-                  key={h.italic + h.bottom}
-                  type="button"
-                  role="tab"
-                  aria-selected={i === headlineIdx}
-                  aria-label={`Show headline: ${h.italic} ${h.bottom}`}
-                  onClick={() => setHeadlineIdx(i)}
-                  className="group relative h-1.5 rounded-full transition-all duration-500"
-                  style={{
-                    width: i === headlineIdx ? '2.25rem' : '0.5rem',
-                    backgroundColor:
-                      i === headlineIdx ? '#FBBF24' : 'rgba(255,255,255,0.4)',
-                  }}
-                />
-              ))}
-            </div>
           </Reveal>
 
           <Reveal delay={2}>
