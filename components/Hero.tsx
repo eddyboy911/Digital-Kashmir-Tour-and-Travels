@@ -63,13 +63,16 @@ export function Hero() {
       {/* Background image — full bleed with slow zoom */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1566837497312-7be4a47a1d70?auto=format&fit=crop&w=2400&q=70"
+          src="https://images.unsplash.com/photo-1606117331085-5760e3b58520?auto=format&fit=crop&w=2400&q=80"
           alt=""
           aria-hidden
           className="h-full w-full object-cover animate-slow-zoom"
         />
-        <div className="absolute inset-0 bg-hero-fade" />
-        <div className="absolute inset-0 bg-grain opacity-[0.18] mix-blend-overlay" />
+        {/* Directional tint — darker on the left where the headline sits,
+            lighter on the right so the mountains and sky stay visible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink-900/85 via-ink-900/55 to-ink-900/15" />
+        {/* Soft top + bottom vignette for text and page transition */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ink-900/30 via-transparent to-[#FBFAF7]" />
       </div>
 
       {/* Editorial corner mark */}
