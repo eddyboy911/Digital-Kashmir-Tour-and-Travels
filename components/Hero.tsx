@@ -184,7 +184,7 @@ export function Hero() {
                 href="#contact"
                 variant="outline"
                 size="lg"
-                className="rounded-full border-white/60 bg-white/10 px-8 text-base text-white backdrop-blur-md hover:border-white hover:bg-white hover:text-brand-900"
+                className="rounded-full border-white/60 bg-white/10 px-8 text-base text-white backdrop-blur-md transition-colors hover:border-brand-700 hover:bg-brand-700 hover:text-white"
               >
                 <Phone className="h-4 w-4" />
                 Plan a Custom Trip
