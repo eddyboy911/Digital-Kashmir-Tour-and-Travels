@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Mail, MapPin, Phone, Sparkles, Twitter } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { site } from '@/lib/site';
 
@@ -234,19 +234,25 @@ export function Footer() {
           </p>
         </div>
 
-        {/* Built-by credit */}
-        <div className="mt-5 flex justify-center sm:justify-end">
-          <p className="text-[11px] uppercase tracking-[0.22em] text-slate-500">
-            Designed &amp; developed by{' '}
-            <a
-              href="https://www.BrandSparc.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-underline font-bold text-amber-300 transition-colors hover:text-amber-200"
-            >
-              BrandSparc
-            </a>
-          </p>
+        {/* Built-by credit — proper placement with separator */}
+        <div className="mt-10 flex flex-col items-center gap-2 border-t border-white/10 pt-8">
+          <div className="flex items-center gap-2">
+            <Sparkles className="h-3.5 w-3.5 text-amber-300" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.32em] text-slate-500">
+              Designed &amp; developed by
+            </span>
+          </div>
+          <a
+            href="https://www.BrandSparc.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-underline font-display text-base font-extrabold text-amber-300 transition-colors hover:text-amber-200"
+          >
+            BrandSparc
+          </a>
+          <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500">
+            www.BrandSparc.com
+          </span>
         </div>
       </Container>
     </footer>
