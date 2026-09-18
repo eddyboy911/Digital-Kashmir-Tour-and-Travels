@@ -74,7 +74,7 @@ export function WhyChooseUs() {
         <div className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-800 backdrop-blur">
         <span>0{i + 1}</span>
         <span className="h-px w-6 bg-brand-800/60" />
-        <span>Pillar</span>
+        <span>Promise</span>
         </div>
       </div>
       </Reveal>
