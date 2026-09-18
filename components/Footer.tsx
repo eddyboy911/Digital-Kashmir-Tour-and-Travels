@@ -233,6 +233,21 @@ export function Footer() {
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
         </div>
+
+        {/* Built-by credit */}
+        <div className="mt-5 flex justify-center sm:justify-end">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-slate-500">
+            Designed &amp; developed by{' '}
+            <a
+              href="https://www.BrandSparc.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline font-bold text-amber-300 transition-colors hover:text-amber-200"
+            >
+              BrandSparc
+            </a>
+          </p>
+        </div>
       </Container>
     </footer>
   );

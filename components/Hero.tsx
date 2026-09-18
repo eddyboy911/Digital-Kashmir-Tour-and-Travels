@@ -68,11 +68,11 @@ export function Hero() {
           aria-hidden
           className="h-full w-full object-cover animate-slow-zoom"
         />
-        {/* Directional tint — darker on the left where the headline sits,
-            lighter on the right so the mountains and sky stay visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-900/85 via-ink-900/55 to-ink-900/15" />
-        {/* Soft top + bottom vignette for text and page transition */}
-        <div className="absolute inset-0 bg-gradient-to-b from-ink-900/30 via-transparent to-[#FBFAF7]" />
+        {/* Strong directional tint — heavy on the left where the headline sits,
+            gently fading to the right so the mountains and sky stay visible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink-900/95 via-ink-900/65 to-ink-900/25" />
+        {/* Soft top vignette for editorial depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ink-900/45 via-transparent to-transparent" />
       </div>
 
       {/* Editorial corner mark */}
@@ -105,7 +105,7 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={2}>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-slate-100 sm:text-lg">
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] sm:text-lg">
               Handcrafted itineraries across Srinagar, Gulmarg, Pahalgam, Sonamarg,
               Gurez, and Leh–Ladakh — private cabs, trusted houseboats, and a real
               human on call when you need one.
@@ -118,7 +118,7 @@ export function Hero() {
                 href="#packages"
                 variant="primary"
                 size="lg"
-                className="rounded-full bg-accent-500 px-8 text-base text-brand-950 hover:bg-accent-400 focus-visible:ring-accent-400"
+                className="rounded-full bg-accent-500 px-8 text-base text-brand-950 shadow-lg hover:bg-accent-400 hover:shadow-xl focus-visible:ring-accent-400"
               >
                 Explore Packages
                 <ArrowRight className="h-4 w-4" />
@@ -127,7 +127,7 @@ export function Hero() {
                 href="#contact"
                 variant="outline"
                 size="lg"
-                className="rounded-full border-white/70 px-8 text-base text-white hover:border-white hover:bg-white hover:text-brand-900"
+                className="rounded-full border-white/60 bg-white/10 px-8 text-base text-white backdrop-blur-md hover:border-white hover:bg-white hover:text-brand-900"
               >
                 <Phone className="h-4 w-4" />
                 Plan a Custom Trip
@@ -137,12 +137,12 @@ export function Hero() {
 
           {/* Trust strip — editorial style */}
           <Reveal delay={4}>
-            <div className="mt-14 grid max-w-2xl grid-cols-2 gap-y-4 gap-x-10 border-t border-white/15 pt-7 sm:grid-cols-3">
+            <div className="mt-14 grid max-w-2xl grid-cols-2 gap-y-4 gap-x-10 border-t border-white/20 pt-7 sm:grid-cols-3">
               <div>
                 <p className="font-display text-3xl font-extrabold leading-none text-white">
                   {count}+
                 </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-slate-300">
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/85">
                   Vehicles ready
                 </p>
               </div>
@@ -150,7 +150,7 @@ export function Hero() {
                 <p className="font-display text-3xl font-extrabold leading-none text-white">
                   1.2k+
                 </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-slate-300">
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/85">
                   Happy travellers
                 </p>
               </div>
@@ -158,7 +158,7 @@ export function Hero() {
                 <p className="font-display text-3xl font-extrabold leading-none text-white">
                   4.9<span className="text-amber-300">★</span>
                 </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-slate-300">
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/85">
                   Avg. trip rating
                 </p>
               </div>
@@ -188,8 +188,8 @@ export function Hero() {
         </div>
       </Container>
 
-      {/* Bottom gradient blend */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#FBFAF7]" />
+      {/* Bottom blend into next section — shorter, so it doesn't wash out the stats */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent to-[#FBFAF7]" />
     </section>
   );
 }

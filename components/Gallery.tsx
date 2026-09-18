@@ -4,8 +4,8 @@ import { Reveal, type RevealDirection } from '@/components/Reveal';
 
 const tiles: { src: string; alt: string; span: string; title: string; sub: string; dir: RevealDirection }[] = [
   {
-    src: 'https://images.unsplash.com/photo-1566837497312-7be4a47a1d70?auto=format&fit=crop&w=900&q=70',
-    alt: 'Houseboats on Dal Lake at sunrise',
+    src: 'https://images.unsplash.com/photo-1569852837213-00d97a707a83?auto=format&fit=crop&w=900&q=70',
+    alt: 'Shikaras on Dal Lake at sunrise',
     span: 'md:col-span-2 md:row-span-2',
     title: 'Dal Lake',
     sub: 'Houseboats · Shikaras',
@@ -28,7 +28,7 @@ const tiles: { src: string; alt: string; span: string; title: string; sub: strin
     dir: 'up',
   },
   {
-    src: 'https://images.unsplash.com/photo-1591019479261-1a103585c559?auto=format&fit=crop&w=900&q=70',
+    src: 'https://images.unsplash.com/photo-1619837374214-f5b9eb80876d?auto=format&fit=crop&w=900&q=70',
     alt: 'Pangong Lake, Ladakh',
     span: '',
     title: 'Pangong',
@@ -36,8 +36,8 @@ const tiles: { src: string; alt: string; span: string; title: string; sub: strin
     dir: 'right',
   },
   {
-    src: 'https://images.unsplash.com/photo-1614608997588-8c1c5b3a3b3a?auto=format&fit=crop&w=900&q=70',
-    alt: 'Gurez Valley meadows',
+    src: 'https://images.unsplash.com/photo-1708186320869-0a527e67023d?auto=format&fit=crop&w=900&q=70',
+    alt: 'Gurez Valley — bridge over river with mountains',
     span: '',
     title: 'Gurez',
     sub: 'Hidden valley',

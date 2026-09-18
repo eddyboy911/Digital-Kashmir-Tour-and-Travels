@@ -35,7 +35,7 @@ export const destinations: Destination[] = [
     id: 'dal-lake',
     name: 'Dal Lake',
     image:
-      'https://images.unsplash.com/photo-1566837497312-7be4a47a1d70?auto=format&fit=crop&w=900&q=70',
+      'https://images.unsplash.com/photo-1569852837213-00d97a707a83?auto=format&fit=crop&w=900&q=70',
     tag: 'Iconic Srinagar shikara rides & houseboats',
   },
   {
@@ -63,7 +63,7 @@ export const destinations: Destination[] = [
     id: 'gurez-valley',
     name: 'Gurez Valley',
     image:
-      'https://images.unsplash.com/photo-1614608997588-8c1c5b3a3b3a?auto=format&fit=crop&w=900&q=70',
+      'https://images.unsplash.com/photo-1708186320869-0a527e67023d?auto=format&fit=crop&w=900&q=70',
     tag: 'Off-beaten, pristine valley & Habba Khatoon',
   },
   {
@@ -84,14 +84,14 @@ export const destinations: Destination[] = [
     id: 'katra-vaishnodevi',
     name: 'Katra – Vaishno Devi',
     image:
-      'https://images.unsplash.com/photo-1604608672516-f1b9b1d1f1f3?auto=format&fit=crop&w=900&q=70',
+      'https://images.unsplash.com/photo-1719377678477-0fb3638ec482?auto=format&fit=crop&w=900&q=70',
     tag: 'Pilgrimage & family-friendly add-on',
   },
   {
     id: 'leh-ladakh',
     name: 'Leh – Ladakh',
     image:
-      'https://images.unsplash.com/photo-1591019479261-1a103585c559?auto=format&fit=crop&w=900&q=70',
+      'https://images.unsplash.com/photo-1619837374214-f5b9eb80876d?auto=format&fit=crop&w=900&q=70',
     tag: 'High-altitude desert & Pangong Lake',
   },
 ];
@@ -103,7 +103,7 @@ export const packages: Package[] = [
     duration: '6N / 7D',
     priceRange: '₹15,000 – ₹23,000',
     image:
-      'https://images.unsplash.com/photo-1566837497312-7be4a47a1d70?auto=format&fit=crop&w=1200&q=70',
+      'https://images.unsplash.com/photo-1569852837213-00d97a707a83?auto=format&fit=crop&w=1200&q=70',
     summary:
       'A relaxed family-friendly loop covering Srinagar, Gulmarg, and Pahalgam with private cab and houseboat stay.',
     inclusions: ['Hotel & Houseboat', 'Breakfast & Dinner', 'Private Cab', 'Sightseeing'],
@@ -146,7 +146,7 @@ export const packages: Package[] = [
     duration: '9N / 10D',
     priceRange: '₹30,000 – ₹50,000',
     image:
-      'https://images.unsplash.com/photo-1591019479261-1a103585c559?auto=format&fit=crop&w=1200&q=70',
+      'https://images.unsplash.com/photo-1619837374214-f5b9eb80876d?auto=format&fit=crop&w=1200&q=70',
     summary:
       'The grand Kashmir + Ladakh expedition — Sonamarg, Kargil, Leh, Nubra, and Pangong.',
     inclusions: ['Hotels & Camps', 'Breakfast & Dinner', 'SUV Cab', 'Permits & Sightseeing'],
@@ -191,7 +191,7 @@ export const packages: Package[] = [
     duration: '7N / 8D',
     priceRange: '₹20,000 – ₹23,000',
     image:
-      'https://images.unsplash.com/photo-1614608997588-8c1c5b3a3b3a?auto=format&fit=crop&w=1200&q=70',
+      'https://images.unsplash.com/photo-1708186320869-0a527e67023d?auto=format&fit=crop&w=1200&q=70',
     summary:
       'For travellers who want to go beyond the postcard — Gurez Valley, Dawar, and Habba Khatoon peak.',
     inclusions: ['Hotels & Homestays', 'Breakfast & Dinner', 'SUV Cab', 'Permits'],
@@ -214,7 +214,7 @@ export const packages: Package[] = [
     duration: '7N / 8D',
     priceRange: '₹17,000 – ₹20,000',
     image:
-      'https://images.unsplash.com/photo-1604608672516-f1b9b1d1f1f3?auto=format&fit=crop&w=1200&q=70',
+      'https://images.unsplash.com/photo-1719377678477-0fb3638ec482?auto=format&fit=crop&w=1200&q=70',
     summary:
       'A pilgrimage + leisure combo — darshan at Shri Mata Vaishno Devi plus the best of Kashmir.',
     inclusions: ['Hotels', 'Breakfast & Dinner', 'Private Cab', 'Yatra Assistance'],
