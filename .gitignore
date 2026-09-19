@@ -26,6 +26,11 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# user's media staging area — drop files here, copy/move the ones
+# you want served into /public/ (e.g. /public/slides/ for hero slides,
+# /public/gallery/ for gallery images, etc.)
+/media/
+
 # vercel
 .vercel
 
