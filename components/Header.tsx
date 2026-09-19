@@ -65,28 +65,23 @@ export function Header() {
         >
           <span
             aria-hidden
-            className="float-soft grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-jade-600 to-brand-800 text-white shadow-soft"
+            className="float-soft grid h-11 w-11 place-items-center overflow-hidden rounded-xl bg-white shadow-soft ring-1 ring-slate-200/70"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-5 w-5"
-            >
-              <path d="M3 19l4-9 4 5 3-7 3 4 4-3" />
-              <path d="M3 19h18" />
-            </svg>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.png"
+              alt={`${site.name} logo`}
+              className="h-full w-full object-contain"
+              width={44}
+              height={44}
+            />
           </span>
           <span className="hidden flex-col leading-tight sm:flex">
             <span className="font-display text-base font-extrabold tracking-tight text-slate-900">
               {site.shortName}
             </span>
             <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-jade-700">
-              Tour and Travel
+              Tour &amp; Travels
             </span>
           </span>
         </Link>

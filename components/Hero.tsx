@@ -86,7 +86,7 @@ export function Hero() {
   {/* Background image full bleed with slow zoom */}
   <div className="absolute inset-0 -z-10 overflow-hidden">
     <img
-    src="https://images.unsplash.com/photo-1606117331085-5760e3b58520?auto=format&fit=crop&w=2400&q=80"
+    src="/hero1.jpg"
     alt=""
     aria-hidden
     className="h-full w-full object-cover animate-slow-zoom"
