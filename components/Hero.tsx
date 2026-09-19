@@ -1,11 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import clsx from 'clsx';
 import { ArrowRight, Award, Phone, ShieldCheck } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { site } from '@/lib/site';
+import { heroSlides } from '@/lib/slides';
 import { Reveal } from '@/components/Reveal';
 
 /** Third-line variations that cycle beneath the static "Experience / Kashmir".
@@ -18,12 +20,14 @@ const HEADLINE_TAILS = [
 ];
 
 const TAIL_ROTATE_MS = 3200;
+const SLIDE_ROTATE_MS = 3000;
 
 export function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
   const [tailIdx, setTailIdx] = useState(0);
+  const [slideIdx, setSlideIdx] = useState(0);
 
   // Animate vehicle counter when hero enters view
   useEffect(() => {
@@ -76,6 +80,15 @@ export function Hero() {
   return () => clearInterval(t);
   }, []);
 
+  // Rotate the hero background slides every SLIDE_ROTATE_MS.
+  useEffect(() => {
+  if (heroSlides.length < 2) return;
+  const t = setInterval(() => {
+  setSlideIdx((i) => (i + 1) % heroSlides.length);
+  }, SLIDE_ROTATE_MS);
+  return () => clearInterval(t);
+  }, []);
+
   return (
   <section
   id="home"
@@ -83,19 +96,46 @@ export function Hero() {
   aria-labelledby="hero-title"
   className="relative isolate min-h-[94vh] overflow-hidden pt-28 sm:pt-32"
   >
-  {/* Background image full bleed with slow zoom */}
+  {/* Background slides — crossfade through heroSlides every 3s */}
   <div className="absolute inset-0 -z-10 overflow-hidden">
-    <img
-    src="/hero1.jpg"
+    {heroSlides.map((slide, i) => (
+    <Image
+    key={slide.src}
+    src={slide.src}
     alt=""
     aria-hidden
-    className="h-full w-full object-cover animate-slow-zoom"
+    fill
+    sizes="100vw"
+    priority={i === 0}
+    className={clsx(
+    'object-cover transition-opacity duration-1000 ease-in-out',
+    i === slideIdx ? 'opacity-100' : 'opacity-0',
+    )}
     />
+    ))}
     {/* Strong directional tint heavy on the left where the headline sits,
     gently fading to the right so the mountains and sky stay visible */}
     <div className="absolute inset-0 bg-gradient-to-r from-ink-900/95 via-ink-900/65 to-ink-900/25" />
     {/* Soft top vignette for editorial depth */}
     <div className="absolute inset-0 bg-gradient-to-b from-ink-900/45 via-transparent to-transparent" />
+    {/* Slide indicators (only if more than 1 slide) */}
+    {heroSlides.length > 1 && (
+    <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2">
+      {heroSlides.map((slide, i) => (
+      <button
+      key={slide.src}
+      type="button"
+      aria-label={`Show slide ${i + 1}`}
+      aria-current={i === slideIdx}
+      onClick={() => setSlideIdx(i)}
+      className={clsx(
+      'h-1.5 rounded-full transition-all duration-500',
+      i === slideIdx ? 'w-8 bg-amber-300' : 'w-1.5 bg-white/40 hover:bg-white/70',
+      )}
+      />
+      ))}
+    </div>
+    )}
   </div>
 
   {/* Editorial corner mark right side */}
