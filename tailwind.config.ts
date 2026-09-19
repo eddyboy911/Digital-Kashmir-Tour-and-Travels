@@ -9,17 +9,17 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          50: '#EFF6FF',
-          100: '#DBEAFE',
-          200: '#BFDBFE',
-          300: '#93C5FD',
-          400: '#60A5FA',
-          500: '#3B82F6',
-          600: '#2563EB',
-          700: '#1D4ED8',
-          800: '#1E40AF',
-          900: '#1E3A8A',
-          950: '#172554',
+          50: '#FFF7ED',
+          100: '#FFEDD5',
+          200: '#FED7AA',
+          300: '#FDBA74',
+          400: '#FB923C',
+          500: '#F97316',
+          600: '#EA580C',
+          700: '#C2410C',
+          800: '#9A3412',
+          900: '#7C2D12',
+          950: '#431407',
         },
         jade: {
           50: '#ECFDF5',
@@ -63,11 +63,11 @@ const config: Config = {
       boxShadow: {
         soft: '0 6px 24px -8px rgba(15, 22, 18, 0.12)',
         card: '0 18px 40px -18px rgba(15, 22, 18, 0.18)',
-        glow: '0 0 0 1px rgba(15, 22, 18, 0.04), 0 20px 50px -20px rgba(30, 64, 175, 0.25)',
+        glow: '0 0 0 1px rgba(15, 22, 18, 0.04), 0 20px 50px -20px rgba(194, 65, 12, 0.25)',
       },
       backgroundImage: {
         'hero-fade':
-          'linear-gradient(120deg, rgba(11, 22, 18, 0.82) 0%, rgba(30, 64, 175, 0.55) 60%, rgba(11, 22, 18, 0.35) 100%)',
+          'linear-gradient(120deg, rgba(11, 22, 18, 0.82) 0%, rgba(194, 65, 12, 0.55) 60%, rgba(11, 22, 18, 0.35) 100%)',
         'grain':
           "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\")",
       },

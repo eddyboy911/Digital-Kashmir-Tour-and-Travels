@@ -1,9 +1,17 @@
+import Link from 'next/link';
 import { ArrowUpRight, Calendar, CheckCircle2, MapPin, MessageCircle } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal, type RevealDirection } from '@/components/Reveal';
 import { packages } from '@/lib/data';
 import { site } from '@/lib/site';
+
+interface TourPackagesProps {
+  /** When set, only the first N packages are rendered and a "View all" CTA is shown. */
+  limit?: number;
+  /** Hide the section heading (used by the dedicated /packages page which has its own hero). */
+  hideHeading?: boolean;
+}
 
 function packageHref(title: string) {
   const text = `Hi, I'm interested in the "${title}" package. Please share availability and details.`;
@@ -13,7 +21,10 @@ function packageHref(title: string) {
 // Pattern repeats every 6 cards left, up, right, up, right, left
 const pattern: RevealDirection[] = ['left', 'up', 'right', 'up', 'right', 'left'];
 
-export function TourPackages() {
+export function TourPackages({ limit, hideHeading = false }: TourPackagesProps) {
+  const visible = typeof limit === 'number' ? packages.slice(0, limit) : packages;
+  const truncated = typeof limit === 'number' && packages.length > limit;
+
   return (
   <section
   id="packages"
@@ -21,6 +32,7 @@ export function TourPackages() {
   className="section surface-soft"
   >
   <Container>
+    {!hideHeading && (
     <SectionHeading
     eyebrow="Tour Packages"
     title={
@@ -31,9 +43,11 @@ export function TourPackages() {
     }
     subtitle="Every package below is fully customisable. Mix destinations, swap hotels, or extend the trip we’ll redraft the plan in a few hours."
     />
+    )}
 
-    <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-    {packages.map((pkg, i) => {
+    <div className={hideHeading ? 'mt-0' : 'mt-16'}>
+    <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+    {visible.map((pkg, i) => {
     const direction = pattern[i % pattern.length];
     return (
       <Reveal key={pkg.slug} direction={direction}>
@@ -102,7 +116,7 @@ export function TourPackages() {
         ))}
         </div>
 
-        <div className="mt-7 flex items-end justify-between gap-3 border-t border-slate-100 pt-5">
+        <div className="mt-7 flex flex-wrap items-end justify-between gap-3 border-t border-slate-100 pt-5 sm:flex-nowrap">
         <div>
         <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">
           Starting from
@@ -115,7 +129,7 @@ export function TourPackages() {
         href={packageHref(pkg.title)}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-brand-800 hover:shadow-lg"
+        className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-ink-900 px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-brand-800 hover:shadow-lg"
         >
         <MessageCircle className="h-4 w-4" />
         Book Now
@@ -127,6 +141,19 @@ export function TourPackages() {
       </Reveal>
     );
     })}
+    </div>
+
+    {truncated && (
+    <div className="mt-14 flex justify-center">
+      <Link
+      href="/packages"
+      className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-7 py-3.5 text-sm font-bold text-white shadow-soft transition hover:bg-brand-800 hover:shadow-lg"
+      >
+      View all {packages.length} tour packages
+      <ArrowUpRight className="h-4 w-4" />
+      </Link>
+    </div>
+    )}
     </div>
   </Container>
   </section>

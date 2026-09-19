@@ -15,7 +15,7 @@ export default function HomePage() {
   <Hero />
   <DestinationMarquee />
   <Destinations />
-  <TourPackages />
+  <TourPackages limit={3} />
   <BigQuote
     quote="They didn’t just plan a trip they planned a story we’ll tell for years. From a private shikara ride at sunset to a driver who knew every shortcut through Sonamarg, every detail felt personal."
     author="Penelope Wiggins"

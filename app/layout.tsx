@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -7,11 +7,11 @@ import { FloatingButtons } from '@/components/FloatingButtons';
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { site } from '@/lib/site';
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#1E40AF',
+  themeColor: '#C2410C',
 };
 
 export default function RootLayout({
@@ -46,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-  <html lang="en" className={jakarta.variable}>
+  <html lang="en" className={inter.variable}>
   <body>
     <a
     href="#main"

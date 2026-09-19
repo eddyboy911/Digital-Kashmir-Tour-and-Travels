@@ -36,8 +36,9 @@ export function Destinations() {
       delay={Math.min(i % 3, 4) as 0 | 1 | 2 | 3 | 4}
       >
       <a
-      href="#packages"
-      className="group relative isolate flex aspect-[4/5] items-end overflow-hidden rounded-3xl shadow-soft card-premium img-zoom-on-hover"
+      id={d.id}
+      href={`/destinations#${d.id}`}
+      className="group relative isolate flex aspect-[4/5] items-end overflow-hidden rounded-3xl shadow-soft card-premium img-zoom-on-hover scroll-mt-28"
       aria-label={`Explore ${d.name}`}
       >
       <img
