@@ -168,7 +168,6 @@ export function ContactForm() {
               name="phone"
               required
               autoComplete="tel"
-              pattern="[0-9+\-\s()]{7,}"
               value={form.phone}
               onChange={update('phone')}
               placeholder="+91 98765 43210"
