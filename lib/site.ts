@@ -14,9 +14,10 @@ export const site = {
   registration: 'JK Tourism No. JKEA00006103',
   udyam: 'UDYAM-JK-21-0100334',
   socials: {
-    // Facebook and Instagram not set up yet — set to '' to hide icons.
+    // All social channels hidden while client has none set up.
+    // Re-enable by adding real URLs (e.g. https://instagram.com/yourhandle).
     facebook: '',
-    twitter: 'https://twitter.com/',
+    twitter: '',
     instagram: '',
   },
 } as const;
