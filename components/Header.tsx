@@ -165,33 +165,39 @@ export function Header() {
         {/* Right cluster */}
         <div className="flex items-center gap-2">
           <div className="hidden items-center gap-1 md:flex">
-            <a
-              href={site.socials.facebook}
-              aria-label="Facebook"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="grid h-9 w-9 place-items-center rounded-full text-slate-500 transition hover:bg-jade-50 hover:text-jade-700"
-            >
-              <Facebook className="h-4 w-4" />
-            </a>
-            <a
-              href={site.socials.twitter}
-              aria-label="Twitter"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="grid h-9 w-9 place-items-center rounded-full text-slate-500 transition hover:bg-jade-50 hover:text-jade-700"
-            >
-              <Twitter className="h-4 w-4" />
-            </a>
-            <a
-              href={site.socials.instagram}
-              aria-label="Instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="grid h-9 w-9 place-items-center rounded-full text-slate-500 transition hover:bg-jade-50 hover:text-jade-700"
-            >
-              <Instagram className="h-4 w-4" />
-            </a>
+            {site.socials.facebook && (
+              <a
+                href={site.socials.facebook}
+                aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grid h-9 w-9 place-items-center rounded-full text-slate-500 transition hover:bg-jade-50 hover:text-jade-700"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+            )}
+            {site.socials.twitter && (
+              <a
+                href={site.socials.twitter}
+                aria-label="Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grid h-9 w-9 place-items-center rounded-full text-slate-500 transition hover:bg-jade-50 hover:text-jade-700"
+              >
+                <Twitter className="h-4 w-4" />
+              </a>
+            )}
+            {site.socials.instagram && (
+              <a
+                href={site.socials.instagram}
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grid h-9 w-9 place-items-center rounded-full text-slate-500 transition hover:bg-jade-50 hover:text-jade-700"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+            )}
           </div>
 
           <a

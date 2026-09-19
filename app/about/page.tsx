@@ -8,7 +8,7 @@ import { AboutCta } from '@/components/AboutCta';
 export const metadata = {
   title: 'About',
   description:
-    'Digital Kashmir Tour and Travel is a small, licensed team of trip designers based in Srinagar. Meet the team and learn what drives us.',
+    'Digital Kashmir Tour & Travels is a small, licensed team of trip designers based in Srinagar. Meet the team and learn what drives us.',
 };
 
 export default function AboutPage() {

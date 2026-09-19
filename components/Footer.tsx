@@ -81,33 +81,39 @@ export function Footer() {
     </p>
 
     <div className="mt-7 flex items-center gap-2">
-      <a
-      href={site.socials.facebook}
-      aria-label="Facebook"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-slate-300 transition hover:border-jade-400 hover:text-jade-300"
-      >
-      <Facebook className="h-4 w-4" />
-      </a>
-      <a
-      href={site.socials.twitter}
-      aria-label="Twitter"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-slate-300 transition hover:border-jade-400 hover:text-jade-300"
-      >
-      <Twitter className="h-4 w-4" />
-      </a>
-      <a
-      href={site.socials.instagram}
-      aria-label="Instagram"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-slate-300 transition hover:border-jade-400 hover:text-jade-300"
-      >
-      <Instagram className="h-4 w-4" />
-      </a>
+      {site.socials.facebook && (
+        <a
+        href={site.socials.facebook}
+        aria-label="Facebook"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-slate-300 transition hover:border-jade-400 hover:text-jade-300"
+        >
+        <Facebook className="h-4 w-4" />
+        </a>
+      )}
+      {site.socials.twitter && (
+        <a
+        href={site.socials.twitter}
+        aria-label="Twitter"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-slate-300 transition hover:border-jade-400 hover:text-jade-300"
+        >
+        <Twitter className="h-4 w-4" />
+        </a>
+      )}
+      {site.socials.instagram && (
+        <a
+        href={site.socials.instagram}
+        aria-label="Instagram"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-slate-300 transition hover:border-jade-400 hover:text-jade-300"
+        >
+        <Instagram className="h-4 w-4" />
+        </a>
+      )}
     </div>
 
     <form

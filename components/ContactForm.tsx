@@ -64,7 +64,7 @@ export function ContactForm() {
         body: JSON.stringify({
           access_key: accessKey,
           subject: `New enquiry from ${form.name || 'website'}`,
-          from_name: 'Digital Kashmir Tour and Travel',
+          from_name: 'Digital Kashmir Tour & Travels',
           name: form.name,
           email: form.email,
           phone: form.phone,

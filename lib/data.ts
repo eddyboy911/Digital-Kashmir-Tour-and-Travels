@@ -328,7 +328,7 @@ export const testimonials: Testimonial[] = [
 
 export const faq: FaqItem[] = [
   {
-  q: 'What services does Digital Kashmir Tour and Travel offer?',
+  q: 'What services does Digital Kashmir Tour & Travels offer?',
   a: 'We offer end-to-end Kashmir holiday packages (3 to 10 days), hotel and houseboat bookings, private and shared cab rentals, airport/railway transfers, guided sightseeing, and Ladakh extensions. Every itinerary can be customised to your dates, group size, and pace.',
   },
   {

@@ -121,7 +121,7 @@ export function Hero() {
     >
       {/* Screen-reader canonical headline */}
       <span className="sr-only">
-      Experience Kashmir Digital Kashmir Tour and Travel
+      Experience Kashmir Digital Kashmir Tour & Travels
       </span>
 
       {/* Static top "Experience" and "Kashmir" never change, same size */}

@@ -24,7 +24,7 @@ export function AboutStory() {
         <div className="mt-10 grid gap-5 text-base leading-relaxed text-slate-600 sm:text-lg">
           <Reveal delay={2}>
             <p>
-              Digital Kashmir Tour and Travel was founded in 2018 by a small team that
+              Digital Kashmir Tour & Travels was founded in 2018 by a small team that
               grew up on the shores of Dal Lake. We had been guiding friends and family
               through Kashmir for years before we ever called it a business, and what
               started as weekend trip planning became a full-time operation the moment
